@@ -3,10 +3,16 @@ Important changes to Oh My Fish are recorded here for each release.
 
 
 ## Unreleased
-- Key bindings are now fully supported in user config and in plugins. Bindings should be placed in a `key_bindings.fish` script and will be loaded automatically.
+- Key bindings are now fully supported in user config, plugins, and themes. Bindings should be placed in a `key_bindings.fish` script and will be loaded automatically.
 - Init process completely rewritten to improve performance and correctness. Using `on_{plugin}` events for plugin initialization is now deprecated and will eventually be removed. `init.fish` scripts will be sourced directly and are passed the variables `$path`, `$package`, and `$bundle`.
-- Installer now checks for fish 2.2.0 or newer.
-- New plugins: docker-machine, exenv, proxy, sudope, wttr
+- Installer refactored and rewritten to support offline installs, custom paths, and better platform support. The installer now takes advantage of Fish 2.3.0's `conf.d` directory to generate bootstrap files instead of messing with `config.fish`, and gives much more respect and control over users' config files to the user during installs.
+- Installer now verifies for fish 2.2.0 or newer.
+- Add new "hooks" system that packages can take advantage of to run custom scripts during install, uninstall, and update processes.
+- Updated template for new packages.
+- `install` command now returns correct exit status.
+- Fix branch name error when in a Git detached head.
+- New plugins: docker-machine, exenv, mou, proxy, spark, sudope, virtualfish, wttr
+- Cleanup help text.
 - Documentation fixes.
 
 ### Contributors
@@ -18,6 +24,7 @@ Important changes to Oh My Fish are recorded here for each release.
 - Luís Fiolhais
 - Pablo Santiago Blum de Aguiar
 - Pedro Medeiros
+- Sergey Timanin
 - Stephen M. Coakley
 - Wild Kat
 
